@@ -233,7 +233,7 @@ window.onload = function () {
 
     // 画像の描画処理
     let result = canvas.toDataURL();
-
+    alert( JSON.stringify(canvas) );
     if (result === "data:,") {
       alert("生成失败，尝试减小图像的高度和宽度。");
       return;
