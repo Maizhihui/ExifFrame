@@ -230,10 +230,10 @@ window.onload = function () {
     ctx.font = '400 ' + BASE_FONT_SIZE * 0.8 + 'px ' + FONT_FAMILY;  // フォントの設定
     ctx.fillStyle = '#747474';  // 文字色
     ctx.fillText(finalText, canvas.width / 2, textCenter + LINE_SPACING + BASE_FONT_SIZE);
-    alert( JSON.stringify(canvas) );
+    console.log('ctx:' + ctx);
+    console.log('canvas:' + canvas);
     // 画像の描画処理
     let result = canvas.toDataURL();
-    alert( result );
     if (result === "data:,") {
       alert("生成失败，尝试减小图像的高度和宽度。");
       return;
