@@ -230,7 +230,7 @@ window.onload = function () {
     ctx.fillText(finalText, canvas.width / 2, textCenter + LINE_SPACING + BASE_FONT_SIZE);
     alert('canvas:w:' + canvas.width + ",ctx:h:" + canvas.height);
     // 画像の描画処理
-    let result = canvas.toDataURL();
+    let result = canvas.toDataURL('image/jpeg', 1);
     if (result === "data:,") {
       alert("生成失败，尝试减小图像的高度和宽度。");
       return;
