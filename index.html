@@ -1,22 +1,12 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh">
 
-<head prefix="og: https://ogp.me/ns#">
-  <title>ExifFrame</title>
+<head>
+  <title>Exif照片边框</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width">
-  <meta name="description" content="写真にフレームを追加しExif情報を表示・編集するウェブアプリです">
-  <meta property="og:url" content="https://ry0y4n.github.io/ExifFrame/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="ExifFrame">
-  <meta property="og:description" content="写真にフレームを追加しExif情報を表示・編集するウェブアプリです">
-  <meta property="og:image" content="https://ry0y4n.github.io/ExifFrame/assets/icon.png">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="ExifFrame">
-  <meta name="twitter:description" content="写真にフレームを追加しExif情報を表示・編集するウェブアプリです">
-  <meta name="twitter:image" content="https://ry0y4n.github.io/ExifFrame/assets/icon.png">
-  <meta name="twitter:url" content="https://ry0y4n.github.io/ExifFrame/">
-  <meta name="twitter:creator" content="@AnoTensai">
+  <meta name="description" content="给照片添加exif数据边框">
+  <meta name="keywords" content="摄影,照片水印,exif,水印边框,exif边框,photohub.cn">
   <link rel="icon" href="./assets/favicon.ico">
   <link rel="stylesheet" href="global.css">
   <link rel="stylesheet" href="index.css">
@@ -40,16 +30,16 @@
       <img class="header__icon" src="./assets/icon-with-text.png" />
     </div>
     <div class="file-manipulation-form">
-      <button class="file-manipulation-form__button button" id="uploadBtn">アップロード</button>
+      <button class="file-manipulation-form__button button" id="uploadBtn">上传</button>
       <input class="file-manipulation-form__button--hide button" type="file" id="upload" />
-      <button class="file-manipulation-form__button button" id="downloadBtn" disabled>ダウンロード</button>
+      <button class="file-manipulation-form__button button" id="downloadBtn" disabled>下载</button>
     </div>
     <div class="loading--hide" id="loading">
-      <p class="loading__text">処理中...</p>
-      <p class="loading__text loading__text--small">（完了までに数秒かかることがあります）</p>
+      <p class="loading__text">处理中...</p>
+      <p class="loading__text loading__text--small">（可能需要几秒钟才能完成）</p>
     </div>
     <div class="sample-content container responsive" id="sampleContent" style="display: block;">
-      <p class="sample-content__title">サンプル画像スライドショー</p>
+      <p class="sample-content__title">示例</p>
       <img class="sample-content__slideshow" id="slideshowImage" src="./samples/sample1.jpeg" />
     </div>
     <div class="result container responsive" id="resultContents" style="display: none;">
@@ -60,17 +50,17 @@
       <div>
         <div class="result-table container">
           <div>
-            <span class="result-table__item">メーカー名</span> : <input class="result-table__form" type="text" id="makeInput" /><br />
-            <span class="result-table__item">機種名</span> : <input class="result-table__form" type="text" id="modelInput" /><br />
-            <span class="result-table__item">レンズ</span> : <input class="result-table__form" type="text" id="lensInput" /><br />
-            <span class="result-table__item">焦点距離</span> : <input class="result-table__form" type="text" id="focalLengthIn35mmFilmInput"></input><br />
-            <span class="result-table__item">絞り</span> : <input class="result-table__form" type="text" id="fNumberInput" /><br />
-            <span class="result-table__item">シャッタースピード</span> : <input class="result-table__form" type="text" id="exposureTimeInput" /><br />
+            <span class="result-table__item">品牌</span> : <input class="result-table__form" type="text" id="makeInput" /><br />
+            <span class="result-table__item">型号</span> : <input class="result-table__form" type="text" id="modelInput" /><br />
+            <span class="result-table__item">镜头</span> : <input class="result-table__form" type="text" id="lensInput" /><br />
+            <span class="result-table__item">焦距</span> : <input class="result-table__form" type="text" id="focalLengthIn35mmFilmInput"></input><br />
+            <span class="result-table__item">光圈</span> : <input class="result-table__form" type="text" id="fNumberInput" /><br />
+            <span class="result-table__item">快门速度</span> : <input class="result-table__form" type="text" id="exposureTimeInput" /><br />
             <span class="result-table__item">ISO感度</span> : <input class="result-table__form" type="text" id="isoSpeedRatingsInput" />
           </div>
         </div>
         <div class="center">
-          <button id="fixInfoBtn" class="button">修正</button>
+          <button id="fixInfoBtn" class="button">校正</button>
         </div>
       </div>
     </div>
@@ -78,9 +68,8 @@
 
   <footer class="center">
     <p class="footer">
-      &copy; 2023 momosuke
       <br>
-      <a class="footer__link-to-terms" href="https://ry0y4n.github.io/ExifFrame/terms">サイトのご利用にあたって</a>
+      <a class="footer__link-to-terms" href="javascript:;">&copy; 2023</a>
     </p>
     
   </footer>
