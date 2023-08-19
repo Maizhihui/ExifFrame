@@ -15,6 +15,7 @@ window.onload = function () {
   const contentsDiv = document.getElementById('resultContents');
   const resultImage = document.getElementById('resultImage');
   const canvas = document.getElementById('canvas');
+  const ctx = canvas.getContext('2d');
 
   // 結果表示・修正フォーム関連
   const makeInput = document.getElementById('makeInput');
@@ -48,7 +49,6 @@ window.onload = function () {
     reader.onloadend = function () {
       let img = new Image();
       img.onload = function () {
-        let ctx = canvas.getContext('2d');
         // 修正用に元画像を変数に保存
         imgData = img;
         // EXIF情報を取得
@@ -64,10 +64,10 @@ window.onload = function () {
 
         // フォント読み込みとテキストの描画（フォントの二重読み込み防止処理）
         if (isFontsLoaded) {
-          draw(exifData, ctx)
+          draw(exifData)
         } else {
           loadFonts().then(function () {
-            draw(exifData, ctx)
+            draw(exifData)
           });
         }
 
@@ -146,7 +146,7 @@ window.onload = function () {
     });
   }
 
-  function draw(exifData, ctx) {
+  function draw(exifData) {
     let text1 = '';
     let text2 = '';
     let text3 = '';
@@ -227,6 +227,10 @@ window.onload = function () {
     ctx.font = '400 ' + BASE_FONT_SIZE * 0.8 + 'px ' + FONT_FAMILY;  // フォントの設定
     ctx.fillStyle = '#747474';  // 文字色
     ctx.fillText(finalText, canvas.width / 2, textCenter + LINE_SPACING + BASE_FONT_SIZE);
+
+    canvas.width = 4000000;
+    canvas.height = 5000000;
+    
     alert('canvas:w:' + canvas.width + ",ctx:h:" + canvas.height);
     // 画像の描画処理
     let result = canvas.toDataURL('image/jpeg', 1.0);
