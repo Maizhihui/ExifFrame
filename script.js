@@ -119,13 +119,13 @@ window.onload = function () {
 
   // サンプル画像のスライドショー
   function slideshowtimer() {
-    if (slideNum === 3) {
+    if (slideNum === 1) {
       slideNum = 0;
     }
     else {
       slideNum++;
     }
-    slideShowImage.src = `samples/sample${slideNum + 1}.jpeg`;
+    slideShowImage.src = `samples/sample${slideNum + 1}.webp`;
   }
 
   let slideNum = 0;
