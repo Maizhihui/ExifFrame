@@ -15,7 +15,6 @@ window.onload = function () {
   const contentsDiv = document.getElementById('resultContents');
   const resultImage = document.getElementById('resultImage');
   const canvas = document.getElementById('canvas');
-  const ctx = canvas.getContext('2d');
 
   // 結果表示・修正フォーム関連
   const makeInput = document.getElementById('makeInput');
@@ -49,7 +48,7 @@ window.onload = function () {
     reader.onloadend = function () {
       let img = new Image();
       img.onload = function () {
-
+        let ctx = canvas.getContext('2d');
         // 修正用に元画像を変数に保存
         imgData = img;
         // EXIF情報を取得
@@ -65,10 +64,10 @@ window.onload = function () {
 
         // フォント読み込みとテキストの描画（フォントの二重読み込み防止処理）
         if (isFontsLoaded) {
-          draw(exifData)
+          draw(exifData, ctx)
         } else {
           loadFonts().then(function () {
-            draw(exifData)
+            draw(exifData, ctx)
           });
         }
 
@@ -147,7 +146,7 @@ window.onload = function () {
     });
   }
 
-  function draw(exifData) {
+  function draw(exifData, ctx) {
     let text1 = '';
     let text2 = '';
     let text3 = '';
