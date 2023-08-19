@@ -235,11 +235,11 @@ window.onload = function () {
     let result = canvas.toDataURL();
 
     if (result === "data:,") {
-      alert("生成失败，尝试减小图像的高度和宽度。。");
+      alert("生成失败，尝试减小图像的高度和宽度。");
       return;
     }
 
-    resultImage.src = result
+    resultImage.src = result;
     toggleLoading(false);
     toggleImageDisplay();
   }
