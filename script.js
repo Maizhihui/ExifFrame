@@ -235,11 +235,11 @@ window.onload = function () {
     let result = canvas.toDataURL();
 
     if (result === "data:,") {
-      alert("フレームの生成に失敗しました。\n画像の縦幅、横幅を小さくして試してみてください。");
+      alert("生成失败，尝试减小图像的高度和宽度。。");
       return;
     }
 
-    resultImage.src = result;
+    resultImage.src = result
     toggleLoading(false);
     toggleImageDisplay();
   }
