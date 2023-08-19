@@ -52,7 +52,7 @@ window.onload = function () {
 
         // 修正用に元画像を変数に保存
         imgData = img;
-
+        alert('w' + this.width + ',h:' + this.height);
         // EXIF情報を取得
         let exifData = {};
         // レンズ情報を取得するためにExif.jsのタグを追加
@@ -162,7 +162,7 @@ window.onload = function () {
     // キャンバスサイズを画像サイズ＋枠分に設定
     canvas.width = imgData.width + HORIZONTAL_MARGIN * 2;
     canvas.height = imgData.height + BOTTOM_MARGIN;
-
+    alert('canvas.width:' + canvas.width + ',canvas.height:' + canvas.height);
     // 白い背景を描画
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
