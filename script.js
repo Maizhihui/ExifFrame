@@ -52,7 +52,6 @@ window.onload = function () {
 
         // 修正用に元画像を変数に保存
         imgData = img;
-        alert('w' + this.width + ',h:' + this.height);
         // EXIF情報を取得
         let exifData = {};
         // レンズ情報を取得するためにExif.jsのタグを追加
@@ -162,7 +161,6 @@ window.onload = function () {
     // キャンバスサイズを画像サイズ＋枠分に設定
     canvas.width = imgData.width + HORIZONTAL_MARGIN * 2;
     canvas.height = imgData.height + BOTTOM_MARGIN;
-    alert('canvas.width:' + canvas.width + ',canvas.height:' + canvas.height);
     // 白い背景を描画
     ctx.fillStyle = '#ffffff';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -230,8 +228,8 @@ window.onload = function () {
     ctx.font = '400 ' + BASE_FONT_SIZE * 0.8 + 'px ' + FONT_FAMILY;  // フォントの設定
     ctx.fillStyle = '#747474';  // 文字色
     ctx.fillText(finalText, canvas.width / 2, textCenter + LINE_SPACING + BASE_FONT_SIZE);
-    console.log('ctx:' + JSON.stringify(ctx));
-    console.log('canvas:' + JSON.stringify(canvas));
+    alert('ctx:' + ctx.toString() );
+    alert('canvas:' + canvas.toString());
     // 画像の描画処理
     let result = canvas.toDataURL();
     if (result === "data:,") {
