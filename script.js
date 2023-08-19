@@ -199,7 +199,7 @@ window.onload = function () {
       exposureTime = exifData.ExposureTimeString;
     }
 
-    let focalLengthText = exifData.FocalLengthIn35mmFilm ? `${exifData.FocalLengthIn35mmFilm}mm ` : '';
+    let focalLengthText = exifData.FocalLengthIn35mmFilm ? `${exifData.FocalLengthIn35mmFilm}mm ` : (exifData.FocalLength ? `${exifData.FocalLength}mm ` : '');
     let fNumberText = exifData.FNumber ? `f/${exifData.FNumber} ` : '';
     let exposureTimeText = exposureTime ? `${exposureTime}s ` : '';
     let isoSpeedRatingsText = exifData.ISOSpeedRatings ? `ISO${exifData.ISOSpeedRatings}` : '';
