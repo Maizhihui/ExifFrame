@@ -231,31 +231,10 @@ window.onload = function () {
     // 画像の描画処理
     let result = canvas.toDataURL('image/png', 1.0);
     if (result === "data:,") {
-      result = canvas.toDataURL('image/png', 0.9);
-      if (result === "data:,") {
-        result = canvas.toDataURL('image/png', 0.8);
-        if (result === "data:,") {
-          result = canvas.toDataURL('image/png', 0.7);
-          if (result === "data:,") {
-            result = canvas.toDataURL('image/png', 0.6);
-            if (result === "data:,") {
-              result = canvas.toDataURL('image/png', 0.5);
-              if (result === "data:,") {
-                result = canvas.toDataURL('image/png', 0.4);
-                if (result === "data:,") {
-                  result = canvas.toDataURL('image/png', 0.3);
-                  if (result === "data:,") {
-                    alert("生成失败，尝试减小图像的高度和宽度。");
-                    return;
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+      toggleLoading(false);
+      alert("生成失败，尝试减小图像的高度和宽度。");
+      return;
     }
-
     resultImage.src = result;
     toggleLoading(false);
     toggleImageDisplay();
