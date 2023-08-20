@@ -228,10 +228,6 @@ window.onload = function () {
     ctx.fillStyle = '#747474';  // 文字色
     ctx.fillText(finalText, canvas.width / 2, textCenter + LINE_SPACING + BASE_FONT_SIZE);
 
-    canvas.width = 4000000;
-    canvas.height = 5000000;
-    
-    alert('canvas:w:' + canvas.width + ",ctx:h:" + canvas.height);
     // 画像の描画処理
     let result = canvas.toDataURL('image/jpeg', 1.0);
     if (result === "data:,") {
