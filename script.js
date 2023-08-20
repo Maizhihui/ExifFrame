@@ -1,3 +1,20 @@
+let isFontsLoaded = false;
+function loadFonts() {
+    const fontInter400 = new FontFace('Inter', 'url(./fonts/inter-v12-latin-regular.woff2)', { weight: '400' });
+    const fontInter500 = new FontFace('Inter', 'url(./fonts/inter-v12-latin-500.woff2)', { weight: '500' });
+    const fontInter700 = new FontFace('Inter', 'url(./fonts/inter-v12-latin-700.woff2)', { weight: '700' });
+
+    return Promise.all([fontInter400.load(), fontInter500.load(), fontInter700.load()]).then(function (loadedFonts) {
+      loadedFonts.forEach(function (loadedFont) {
+        document.fonts.add(loadedFont);
+      });
+
+      isFontsLoaded = true;
+    }).catch(function (error) {
+      alert('无法加载字体：' + error);
+    });
+}
+loadFonts();
 window.onload = function () {
   loadFonts();
   //文件操作相关
@@ -30,7 +47,6 @@ window.onload = function () {
 
   let file;
   let imgData = null;
-  let isFontsLoaded = false;
   let isImageDisplayed = true;
 
   uploadBtn.addEventListener('click', function () {
@@ -124,23 +140,7 @@ window.onload = function () {
 
   // let slideNum = 0;
   //setInterval(slideshowtimer, 3000);
-
-  function loadFonts() {
-    const fontInter400 = new FontFace('Inter', 'url(./fonts/inter-v12-latin-regular.woff2)', { weight: '400' });
-    const fontInter500 = new FontFace('Inter', 'url(./fonts/inter-v12-latin-500.woff2)', { weight: '500' });
-    const fontInter700 = new FontFace('Inter', 'url(./fonts/inter-v12-latin-700.woff2)', { weight: '700' });
-
-    return Promise.all([fontInter400.load(), fontInter500.load(), fontInter700.load()]).then(function (loadedFonts) {
-      loadedFonts.forEach(function (loadedFont) {
-        document.fonts.add(loadedFont);
-      });
-
-      isFontsLoaded = true;
-    }).catch(function (error) {
-      alert('无法加载字体：' + error);
-    });
-  }
-
+  
   function draw(exifData) {
     let text1 = '';
     let text2 = '';
