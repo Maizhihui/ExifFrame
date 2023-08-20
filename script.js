@@ -150,8 +150,8 @@ window.onload = function () {
     let text1 = '';
     let text2 = '';
     let text3 = '';
-    imgData.width = imgData.width * 0.75;
-    imgData.height = imgData.height * 0.75;
+    imgData.width = imgData.width * 0.73;
+    imgData.height = imgData.height * 0.73;
     // 画像に応じたマージンやフォントサイズを計算
     const HORIZONTAL_MARGIN = imgData.width * 0.025;  // 余白の大きさ
     const BOTTOM_MARGIN = imgData.width > imgData.height ? imgData.height * 0.25 : imgData.width * 0.17;  // 下部の余白の大きさ
