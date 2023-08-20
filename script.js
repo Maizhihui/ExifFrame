@@ -240,12 +240,14 @@ window.onload = function () {
             result = canvas.toDataURL('image/jpeg', 0.6);
             if (result === "data:,") {
               result = canvas.toDataURL('image/jpeg', 0.5);
+              if (result === "data:,") {
+                alert("生成失败，尝试减小图像的高度和宽度。");
+                return;
+              }
             }
           }
         }
       }
-      alert("生成失败，尝试减小图像的高度和宽度。");
-      return;
     }
 
     resultImage.src = result;
