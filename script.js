@@ -1,4 +1,5 @@
 window.onload = function () {
+  loadFonts();
   //文件操作相关
   const fileInput = document.getElementById('upload');
   const uploadBtn = document.getElementById('uploadBtn');
@@ -111,18 +112,18 @@ window.onload = function () {
     draw(exifData)
   });
 
-  function slideshowtimer() {
-    if (slideNum === 3) {
-      slideNum = 0;
-    }
-    else {
-      slideNum++;
-    }
-    slideShowImage.src = `samples/sample${slideNum + 1}.webp`;
-  }
+  // function slideshowtimer() {
+  //   if (slideNum === 3) {
+  //     slideNum = 0;
+  //   }
+  //   else {
+  //     slideNum++;
+  //   }
+  //   slideShowImage.src = `samples/sample${slideNum + 1}.webp`;
+  // }
 
-  let slideNum = 0;
-  setInterval(slideshowtimer, 3000);
+  // let slideNum = 0;
+  //setInterval(slideshowtimer, 3000);
 
   function loadFonts() {
     const fontInter400 = new FontFace('Inter', 'url(./fonts/inter-v12-latin-regular.woff2)', { weight: '400' });
