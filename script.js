@@ -231,9 +231,13 @@ window.onload = function () {
     // 画像の描画処理
     let result = canvas.toDataURL('image/jpeg', 1.0);
     if (result === "data:,") {
+      //保存当前画布内容
+      var currentImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       //缩小图片
       canvas.width = canvas.width * 0.7;
       canvas.height = canvas.height * 0.7;
+      //在调整大小后的画布上缩放并展示图像数据
+      context.putImageData(currentImageData, 0, 0, 0, 0, canvas.width, canvas.height);
       result = canvas.toDataURL('image/jpeg', 1.0);
       if (result === "data:,") {
         toggleLoading(false);
