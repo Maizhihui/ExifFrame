@@ -231,6 +231,19 @@ window.onload = function () {
     // 画像の描画処理
     let result = canvas.toDataURL('image/jpeg', 1.0);
     if (result === "data:,") {
+      result = canvas.toDataURL('image/jpeg', 0.9);
+      if (result === "data:,") {
+        result = canvas.toDataURL('image/jpeg', 0.8);
+        if (result === "data:,") {
+          result = canvas.toDataURL('image/jpeg', 0.7);
+          if (result === "data:,") {
+            result = canvas.toDataURL('image/jpeg', 0.6);
+            if (result === "data:,") {
+              result = canvas.toDataURL('image/jpeg', 0.5);
+            }
+          }
+        }
+      }
       alert("生成失败，尝试减小图像的高度和宽度。");
       return;
     }
