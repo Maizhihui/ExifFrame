@@ -150,6 +150,8 @@ window.onload = function () {
     let text1 = '';
     let text2 = '';
     let text3 = '';
+    imgData.width = imgData.width * 0.7;
+    imgData.height = imgData.height * 0.7;
     // 画像に応じたマージンやフォントサイズを計算
     const HORIZONTAL_MARGIN = imgData.width * 0.025;  // 余白の大きさ
     const BOTTOM_MARGIN = imgData.width > imgData.height ? imgData.height * 0.25 : imgData.width * 0.17;  // 下部の余白の大きさ
@@ -231,19 +233,9 @@ window.onload = function () {
     // 画像の描画処理
     let result = canvas.toDataURL('image/jpeg', 1.0);
     if (result === "data:,") {
-      //保存当前画布内容
-      let currentImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      //缩小图片
-      canvas.width = canvas.width * 0.7;
-      canvas.height = canvas.height * 0.7;
-      //在调整大小后的画布上缩放并展示图像数据
-      ctx.putImageData(currentImageData, 0, 0, 0, 0, canvas.width, canvas.height);
-      result = canvas.toDataURL('image/jpeg', 1.0);
-      if (result === "data:,") {
-        toggleLoading(false);
-        alert("生成失败，尝试减小图像的高度和宽度。");
-        return;
-      }
+      toggleLoading(false);
+      alert("生成失败，尝试减小图像的高度和宽度。");
+      return;
     }
     resultImage.src = result;
     toggleLoading(false);
